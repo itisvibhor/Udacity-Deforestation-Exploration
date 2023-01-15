@@ -1,0 +1,389 @@
+ Report for ForestQuery into Global
+Deforestation, 1990 to 2016
+ForestQuery is on a mission to combat deforestation around the world and to raise awareness about this topic and its impact on the environment. The data analysis team at ForestQuery has obtained data from the World Bank that includes forest area and total land area by country and year from 1990 to 2016, as well as a table of countries and the regions to which they belong.
+The data analysis team has used SQL to bring these tables together and to query them in an effort to find areas of concern as well as areas that present an opportunity to learn from successes.
+1. GLOBAL SITUATION
+According to the World Bank, the total forest area of the world was 41282694.9 km/sq in 1990. As of 2016, the most recent year for which data was available, that number had fallen to 39958245.9 km/sq, a loss of 1324449 km/sq, or 3.20%.
+The forest area lost over this time period is slightly more than the entire land area of Peru listed for the year 2016 (which is 1279999.9891).
+2. REGIONAL OUTLOOK
+In 2016, the percent of the total land area of the world designated as forest was 31.37% . The region with the highest relative forestation was   , with 46.16 %, and the region with the lowest relative forestation was   , with 2.06 % forestation.
+In 1990, the percent of the total land area of the world designated as forest was 32.42%. The region with the highest relative forestation was   , with 51.03%, and the region with the lowest relative forestation was   , with 1.77 % forestation.
+     Latin America & Caribbean
+Middle East & North Africa
+ Latin America & Caribbean
+Middle East & North Africa
+
+ Table 2.1: Percent Forest Area by Region, 1990 & 2016:
+     Region
+1990 Forest Percentage
+2016 Forest Percentage
+Latin America & Caribbean
+ 51.03
+46.16
+Europe and Central Asia
+ 37.28
+38.04
+North America
+ 35.65
+36.04
+World
+32.42
+31.38
+Sub-Saharan Africa
+ 30.67
+28.79
+East Asia & Pacific
+ 25.78
+26.36
+South Asia
+ 16.51
+17.51
+Middle East & North Africa
+ 1.78
+2.07
+         The only regions of the world that decreased in percent forest area from 1990 to 2016 were Latin America & Caribbean (dropped from 51.03% to 46.16%) and Sub-Saharan Africa (30.65% to 28.72%). All other regions actually increased in forest area over this time period. However, the drop in forest area in the two aforementioned regions was so large, the percent forest area of the world decreased over this time period from 32.42% to 31.37%.
+3. COUNTRY-LEVEL DETAIL A. SUCCESS STORIES
+There is one particularly bright spot in the data at the country level, China. This country actually increased in forest area from 1990 to 2016 by 527229.062 km/sq. It would be interesting to study what has changed in this country over this time to drive this figure in the data higher. The country with the next largest increase in forest area from 1990 to 2016 was the United States, but it only saw an increase of 79200 km/sq, much lower than the figure for China.
+Russian Federation and China are of course very large countries in total land area, so when we look at the largest percent change in forest area from 1990 to 2016, we aren’t surprised to find a much smaller country listed at the top.Iceland increased in forest area by 213.66 % from 1990 to 2016.
+        
+ B. LARGEST CONCERNS
+Which countries are seeing deforestation to the largest degree? We can answer this question in two ways. First, we can look at the absolute square kilometer decrease in forest area from 1990 to 2016. The following 3 countries had the largest decrease in forest area over the time period under consideration:
+Table 3.1: Top 5 Amount Decrease in Forest Area by Country, 1990 & 2016:
+     Country
+Region
+Absolute Forest Area Change
+Brazil
+Latin America & Caribbean
+ 541510
+ Indonesia
+ East Asia & Pacific
+ 282193.98
+ Myanmar
+ East Asia & Pacific
+ 107234.00
+ Nigeria
+ Sub-Saharan Africa
+ 106506.00
+ Tanzania
+ Sub-Saharan Africa
+ 102320
+       The second way to consider which countries are of concern is to analyze the data by percent decrease.
+Table 3.2: Top 5 Percent Decrease in Forest Area by Country, 1990 & 2016:
+     Country
+Region
+Pct Forest Area Change
+Togo
+Sub-Saharan Africa
+ 75.45
+Nigeria
+ Sub-Saharan Africa
+ 61.80
+Uganda
+ Sub-Saharan Africa
+ 59.27
+Mauritania
+ Sub-Saharan Africa
+ 46.75
+Honduras
+ Latin America & Caribbean
+ 45.03
+      When we consider countries that decreased in forest area percentage the most between 1990 and 2016, we find that four of the top 5 countries on the list are in the region of Sub-Saharan Africa. The countries are Togo,     , and . The 5th country on the list is Honduras, which is in the   region.
+ Nigeria,
+Uganda
+Mauritania
+ Latin America & Caribbean
+ 
+ From the above analysis, we see that Nigeria is the only country that ranks in the top 5 both in terms of absolute square kilometer decrease in forest as well as percent decrease in forest area from 1990 to 2016. Therefore, this country has a significant opportunity ahead to stop the decline and hopefully spearhead remedial efforts.
+C. QUARTILES
+Table 3.3: Count of Countries Grouped by Forestation Percent Quartiles, 2016:
+     Quartile
+Number of Countries
+1
+85
+2
+72
+3
+38
+4
+9
+     The largest number of countries in 2016 were found in the 1st quartile.
+There were 3 countries in the top quartile in 2016. These are countries with a very high percentage of their land area designated as forest. The following is a list of countries and their respective forest land, denoted as a percentage.
+Table 3.4: Top Quartile Countries, 2016:
+     Country
+Region
+Pct Designated as Forest
+Suriname
+ Latin America & Caribbean
+ 98.25
+Micronesia, Fed. Sts.
+ East Asia & Pacific
+ 91.86
+Gabon
+ Sub-Saharan Africa
+ 90.04
+    4. RECOMMENDATIONS
+Write out a set of recommendations as an analyst on the ForestQuery team.
+
+ ● What have you learned from the World Bank data?
+● Which countries should we focus on over others?
+The things i have learned from the World Bank Data is that over the due course of time there are many countries that have an increase in the forest area inspite of increase in population of the world as a whole. Its interesting to see that India and China has increase in Forest area though the population is also increasing keeping the land area limited.There are alot of regions which includes many countries that have a decrease in forest area from 1990 to 2016.
+The countries we should focus are mainly Brazil , Indonesia , Myanmar , Nigeria and Tanzania as they have a alot of forest land in 1990 but in 2016 it has dropped alot.Its a major concern for these countries as the more forest area they have it will lead to a better conditions and more balanced habitat for human beings as well as plants and animals due to which global concerns like global warming and other green house gases effects will be less making survival possible.
+5. APPENDIX: SQL Queries Used
+Create View as ‘forestation’
+create or replace view forestation as
+select forest_area.*,
+land_area.total_area_sq_mi * 2.59 as total_area_sqkm, regions.region,
+regions.income_group, (forest_area.forest_area_sqkm/(land_area.total_area_sq_mi * 2.59)) * 100 as forest_percent
+from forest_area
+join land_area
+on (forest_area.country_name = land_area.country_name) AND (forest_area.year = land_area.year)
+join regions
+on forest_area.country_code = regions.country_code
+ 
+ 1. Global Situation
+a. select forest_area_sqkm as total_area from forest_area
+where country_name ='World' AND year = 1990
+b. select forest_area_sqkm as total_area from forest_area
+where country_name ='World' AND year = 2016
+c. select a1.year,a1.country_name, a2.year,a2.country_name, a2.forest_area_sqkm - a1.forest_area_sqkm as forest_area_change
+from forest_area a1
+join forest_area a2
+on a1.country_name = a2.country_name
+where a1.country_name ='World' AND a2.country_name = 'World' AND a1.year = 1990 AND a2.year = 2016
+d. select (a1.forest_area_sqkm - a2.forest_area_sqkm)/(a1.forest_area_sqkm) * 100 as percent_change
+from forest_area a1
+join forest_area a2
+on a1.country_name = a2.country_name
+where a1.country_name ='World' AND a1.year = 1990 AND a2.country_name ='World' AND a2.year = 2016
+e. SELECT country_name, year, total_area_sq_mi*2.59 FROM land_area
+WHERE year = 2016
+AND total_area_sq_mi* 2.59 < 1324449 order by total_area_sq_mi DESC
+limit 1
+ 
+ 2. Regional Outlook
+Create Table that shows Regions and percent forest area in 1990 and 2016
+With s1 as
+(select regions.region as regions_name, SUM(forest_area.forest_area_sqkm)/SUM(land_area.total_area_sq_mi * 2.59) *100 as percent_forest_1990
+from regions
+INNER join forest_area
+on forest_area.country_code = regions.country_code INNER join land_area
+on land_area.country_name = forest_area.country_name
+and land_area.year = forest_area.year
+where forest_area.year = 1990 and land_area.year = 1990 group by 1),
+s2 as
+(select regions.region as regions_name,SUM(forest_area.forest_area_sqkm) /SUM(land_area.total_area_sq_mi * 2.59) * 100 as percent_forest_2016
+from regions
+INNER join forest_area
+on forest_area.country_code = regions.country_code INNER join land_area
+on land_area.country_name = forest_area.country_name
+and land_area.year = forest_area.year
+where forest_area.year = 2016 and land_area.year = 2016 group by 1)
+select s1.regions_name,CAST(s1.percent_forest_1990 as Decimal(7,2)),CAST(s2.percent_forest_2016 as DECIMAL(7,2)) from s1
+INNER JOIN s2
+on s1.regions_name = s2.regions_name order by percent_forest_2016 DESC
+  
+ a. 1)
+a. 2)
+a. 3)
+With s1 as
+(select regions.region as regions_name,
+SUM(forest_area.forest_area_sqkm) /SUM(land_area.total_area_sq_mi * 2.59) * 100 as percent_forest_2016
+from regions
+INNER join forest_area
+on forest_area.country_name = regions.country_name
+INNER join land_area
+on land_area.country_name = regions.country_name where forest_area.year = 2016 and land_area.year = 2016 group by 1)
+select s1.regions_name , percent_forest_2016 from s1 where s1.regions_name = 'World'
+With s1 as
+(select regions.region as regions_name,SUM(forest_area.forest_area_sqkm) /SUM(land_area.total_area_sq_mi * 2.59) * 100 as percent_forest_2016 from regions
+INNER join forest_area
+on forest_area.country_name = regions.country_name
+INNER join land_area
+on land_area.country_name = regions.country_name where forest_area.year = 2016 and land_area.year = 2016 group by 1)
+select s1.regions_name , cast(percent_forest_2016 as Decimal(7,2)) from s1 order by 2 DESC
+limit 1
+With s1 as
+(select regions.region as regions_name,SUM(forest_area.forest_area_sqkm) /SUM(land_area.total_area_sq_mi *2.59) * 100 as percent_forest_2016
+from regions
+
+ INNER join forest_area
+on forest_area.country_name = regions.country_name INNER join land_area
+on land_area.country_name = regions.country_name where forest_area.year = 2016 and land_area.year = 2016 group by 1)
+select s1.regions_name , cast(percent_forest_2016 as Decimal(7,2)) from s1 order by 2
+limit 1
+b. 1)
+With s1 as
+(select regions.region as regions_name,SUM(forest_area.forest_area_sqkm) /SUM(land_area.total_area_sq_mi * 2.59) * 100 as percent_forest_1990
+from regions
+INNER join forest_area
+on forest_area.country_code = regions.country_code
+INNER join land_area
+on land_area.country_name = forest_area.country_name AND land_area.year = forest_area.year
+where forest_area.year = 1990 and land_area.year = 1990
+group by 1)
+select s1.regions_name , cast(percent_forest_1990 as Decimal(7,2)) from s1 where s1.regions_name = 'World'
+b. 2)
+With s1 as
+(select regions.region as regions_name,SUM(forest_area.forest_area_sqkm) /SUM(land_area.total_area_sq_mi * 2.59) * 100 as percent_forest_1990 from regions
+INNER join forest_area
+on forest_area.country_name = regions.country_name
+INNER join land_area
+
+ on land_area.country_name = regions.country_name where forest_area.year = 1990 and land_area.year = 1990 group by 1)
+select s1.regions_name , cast(percent_forest_1990 as Decimal(7,2)) from s1 order by 2 DESC
+limit 1
+b. 3)
+With s1 as
+(select regions.region as regions_name,SUM(forest_area.forest_area_sqkm) /SUM(land_area.total_area_sq_mi * 2.59) * 100 as percent_forest_1990 from regions
+IINNER join forest_area
+on forest_area.country_name = regions.country_name
+INNER join land_area
+on land_area.country_name = regions.country_name where forest_area.year = 1990 and land_area.year = 1990 group by 1)
+select s1.regions_name , cast(percent_forest_1990 as Decimal(7,2)) from s1 order by 2
+limit 1
+c.
+With s1 as
+(select regions.region as regions_name,
+SUM(forest_area.forest_area_sqkm)/SUM(land_area.total_area_sq_mi * 2.59) * 100 as percent_forest_1990
+from regions
+INNER join forest_area
+on forest_area.country_name = regions.country_name INNER join land_area
+on land_area.country_name = regions.country_name where forest_area.year = 1990 and land_area.year = 1990 group by 1),
+
+ 3.
+s2 as
+(select regions.region as regions_name,SUM(forest_area.forest_area_sqkm) /SUM(land_area.total_area_sq_mi * 2.59) * 100 as percent_forest_2016 from regions
+INNER join forest_area
+on forest_area.country_name = regions.country_name
+INNER join land_area
+on land_area.country_name = regions.country_name
+where forest_area.year = 2016 and land_area.year = 2016
+group by 1)
+select s1.regions_name,percent_forest_2016 - percent_forest_1990 as Dec_forest_area from s1
+INNER JOIN s2
+on s1.regions_name = s2.regions_name
+where percent_forest_2016 - percent_forest_1990 < 0
+Country Level Detail
+To calculate large countries with highest land area
+select country_name,(total_area_sq_mi * 2.59) as total_area from land_area where (total_area_sq_mi * 2.59) IS NOT NULL AND NOT country_name = 'World' AND year =2016
+group by 1,2
+order by total_area_sq_mi*2.59 DESC limit 2
+a. With s1 as
+(select country_name,forest_area_sqkm as forest_1990 from forest_area
+  
+ b.
+where year = 1990),
+s2 as
+(select country_name,forest_area_sqkm as forest_2016 from forest_area where year = 2016)
+select regions.region, s1.country_name, s1.forest_1990 - s2.forest_2016 as Diff from s1
+INNER JOIN s2
+on s1.country_name = s2.country_name
+INNER join regions
+on s1.country_name = regions.country_name
+where ((s1.forest_1990 - s2.forest_2016) IS NOT NULL ) AND NOT s1.country_name = 'World'
+order by 3 DESC
+limit 5
+create or replace view percent_1990 as
+(select regions.region,forest_area.country_name, forest_area.year, (sum(forest_area_sqkm) / sum(total_area_sq_mi*2.59))*100 as percent_forest
+from forest_area INNER join land_area
+on forest_area.country_name = land_area.country_name and
+forest_area.year = land_area.year
+INNER join regions
+on regions.country_code = forest_area.country_code
+where forest_area.year = 1990 and land_area.year = 1990
+group by forest_area.country_name, forest_area.year, forest_area_sqkm,regions.region)
+create or replace view percent_2016 as
+(select regions.region,forest_area.country_name, forest_area.year,
+(sum(forest_area_sqkm) / sum(total_area_sq_mi*2.59))*100 as percent_forest from forest_area
+INNER join land_area
+on forest_area.country_name = land_area.country_name and forest_area.year = land_area.year
+INNER join regions
+on regions.country_code = forest_area.country_code
+
+ C.
+where forest_area.year = 2016 and land_area.year = 2016
+group by forest_area.country_name, forest_area.year, forest_area_sqkm,regions.region)
+SELECT percent_1990.country_name, percent_1990.region, Round((((percent_1990.percent_forest-
+percent_2016.percent_forest)/(percent_1990.percent_forest))*100)::Numeric, 2) AS
+perc_change
+FROM percent_1990
+INNER JOIN percent_2016
+ON percent_1990.country_name = percent_2016.country_name WHERE percent_1990.percent_forest IS NOT NULL
+AND percent_2016.percent_forest IS NOT NULL
+AND percent_1990.country_name != 'World'
+ORDER BY perc_change DESC
+LIMIT 5;
+With s1 as
+(select forest_area.country_name, forest_area.year, (sum(forest_area_sqkm) /
+sum(total_area_sq_mi*2.59))*100 as percent_forest
+from forest_area
+INNER join land_area
+on forest_area.country_name = land_area.country_name and forest_area.year = land_area.year
+where forest_area.year = 2016 and land_area.year = 2016
+group by forest_area.country_name, forest_area.year, forest_area_sqkm)
+Select distinct(quartiles),
+COUNT(country_name) OVER (PARTITION BY quartiles)
+from
+(select s1.country_name,
+CASE
+WHEN percent_forest<25 THEN '0-25 (Q1)'
+WHEN percent_forest>=25 AND percent_forest<50 THEN '25-50 (Q2)' WHEN percent_forest>=50 AND percent_forest<75 THEN '50-75 (Q3)'
+
+ d.
+create or replace view quartile_2 as
+(select regions.region,forest_area.country_name, forest_area.year, (sum(forest_area_sqkm) / sum(total_area_sq_mi*2.59))*100 as percent_forest
+from forest_area INNER join land_area
+on forest_area.country_name = land_area.country_name and
+forest_area.year = land_area.year
+INNER join regions
+on regions.country_code = forest_area.country_code
+where forest_area.year = 2016 and land_area.year = 2016
+group by forest_area.country_name, forest_area.year, forest_area_sqkm,regions.region)
+Select distinct(quartiles), country_name,region,percent_forest from
+(select country_name,region,percent_forest,
+CASE
+WHEN percent_forest<25 THEN '0-25 (Q1)'
+WHEN percent_forest>=25 AND percent_forest<50 THEN '25-50 (Q2)' WHEN percent_forest>=50 AND percent_forest<75 THEN '50-75 (Q3)' ELSE '75-100 (Q4)'
+END AS quartiles
+from quartile_2
+where percent_forest IS NOT NULL
+AND year = 2016) s2
+where quartiles = '75-100 (Q4)'
+create or replace view quartile_2 as
+ELSE '75-100 (Q4)'
+END AS quartiles
+from s1
+where percent_forest IS NOT NULL AND s1.country_name != 'World' AND s1.year = 2016) s2
+e.
+
+ (select regions.region,forest_area.country_name, forest_area.year, (sum(forest_area_sqkm) / sum(total_area_sq_mi*2.59))*100 as percent_forest from forest_area
+INNER join land_area
+on forest_area.country_name = land_area.country_name and forest_area.year = land_area.year
+INNER join regions
+on regions.country_code = forest_area.country_code
+where forest_area.year = 2016 and land_area.year = 2016
+group by forest_area.country_name, forest_area.year, forest_area_sqkm,regions.region)
+select country_name,region,percent_forest
+from quartile_2
+where percent_forest > (select percent_forest from quartile_2 where country_name = 'United States')
+QUERY USED FOR Top Quartile Countries, 2016:
+create or replace view quartile_2 as
+(select regions.region,forest_area.country_name, forest_area.year,
+(sum(forest_area_sqkm) / sum(total_area_sq_mi*2.59))*100 as percent_forest from forest_area
+INNER join land_area
+on forest_area.country_name = land_area.country_name and forest_area.year = land_area.year
+INNER join regions
+on regions.country_code = forest_area.country_code
+where forest_area.year = 2016 and land_area.year = 2016
+group by forest_area.country_name, forest_area.year, forest_area_sqkm,regions.region)
+Select distinct(quartiles), country_name,region,percent_forest
+from
+(select country_name,region,percent_forest, CASE
+WHEN percent_forest<25 THEN '0-25 (Q1)'
+ 
+ WHEN percent_forest>=25 AND percent_forest<50 THEN '25-50 (Q2)' WHEN percent_forest>=50 AND percent_forest<75 THEN '50-75 (Q3)' ELSE '75-100 (Q4)'
+END AS quartiles
+from quartile_2
+where percent_forest IS NOT NULL AND year = 2016) s2
+where quartiles = '75-100 (Q4)' Order by percent_forest
+Limit 3
